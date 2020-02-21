@@ -21,7 +21,11 @@ class BowlingGame
         @frames.map do |frame|
             case frame.bonus
             when :strike
-                frame.score + frames[frame.id].score
+                if frames[frame.id].bonus == :strike
+                    frame.score + frames[frame.id].score + frames[frame.id + 1].top
+                else
+                    frame.score + frames[frame.id].score
+                end
             when :spare
                 frame.score + frames[frame.id].top
             else
