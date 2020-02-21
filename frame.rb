@@ -9,6 +9,7 @@ class Frame
         if @top
             @bottom = pins
         else
+            @bottom = 0 if pins == 10
             @top = pins
         end
     end

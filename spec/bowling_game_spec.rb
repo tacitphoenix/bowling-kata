@@ -19,4 +19,14 @@ RSpec.describe BowlingGame, "#score" do
       expect(bg.score).to eq 20
     end
   end
+
+  context "with strikes" do
+    it "sums one strike" do
+      bg = BowlingGame.new
+      bg.hit(10)
+      bg.hit(3)
+      bg.hit(4)
+      expect(bg.score).to eq 24
+    end
+  end
 end
